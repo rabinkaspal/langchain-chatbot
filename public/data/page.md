@@ -1,5 +1,9 @@
 # LangChain ChatBot
 
+Meet your Langchain virtual learning assistant! Our intelligent chatbot is here 24/7 to help you explore courses, answer questions, guide you through enrollment, and provide support whenever you need it. Whether you're a beginner or an experienced learner, the chatbot ensures you get quick, personalized help at every step.
+
+#
+
 Given a [text document](/data/faqs.txt) with a list of frequently asked questions, the document is split into chunks and converted to vector and saved into a supabase vector database.
 ![Document Splitting flow](/document_split.png)
 Prompt Templates and promts were generated to retrieve standalone questions for user input and answers.
@@ -18,6 +22,8 @@ Vectorised user input and found matches and generated answer from those matches 
 ## App Flow Diagram
 
 ![Chatbot App Flow](/image.png)
+
+#
 
 # Chat Message Prompts for FAQ Retrieval
 
