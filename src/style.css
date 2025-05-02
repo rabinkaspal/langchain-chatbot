@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    height: 100vh;
+    position: relative;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand img {
+    height: 32px;
+    margin-right: 10px;
+}
+
+.brand-text {
+    font-weight: 600;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Markdown Content Area */
+.markdown-content {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Markdown Rendering Styles */
+.markdown-rendered h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.markdown-rendered h2 {
+    font-size: 24px;
+    margin: 25px 0 15px;
+    color: #444;
+}
+
+.markdown-rendered h3 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    color: #555;
+}
+
+.markdown-rendered p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.markdown-rendered ul,
+.markdown-rendered ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.markdown-rendered li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.markdown-rendered a {
+    color: #4a7dff;
+    text-decoration: none;
+}
+
+.markdown-rendered a:hover {
+    text-decoration: underline;
+}
+
+.markdown-rendered code {
+    background-color: #f5f7f9;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.markdown-rendered pre {
+    background-color: #f5f7f9;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+.markdown-rendered pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.markdown-rendered blockquote {
+    border-left: 4px solid #ddd;
+    padding-left: 15px;
+    margin: 15px 0;
+    color: #666;
+}
+
+.markdown-rendered img {
+    max-width: 100%;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.markdown-rendered table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.markdown-rendered th,
+.markdown-rendered td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.markdown-rendered th {
+    background-color: #f5f7f9;
+}
+
+.markdown-rendered tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Chat Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4a7dff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 999;
+}
+
+.chat-icon:hover {
+    transform: scale(1.05);
+    background-color: #3a6eee;
+}
+
+.chat-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+/* Chat Modal */
+.chat-modal {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.chat-modal.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Chat Header */
+.chat-header {
+    padding: 15px 20px;
+    background-color: #4a7dff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Chat Messages Container */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Message Bubbles */
+.message {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    animation: fadeIn 0.3s ease-out;
+    position: relative;
+    transform-origin: bottom;
+    word-wrap: break-word;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.incoming {
+    align-self: flex-start;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    border-bottom-left-radius: 4px;
+}
+
+.message.outgoing {
+    align-self: flex-end;
+    background-color: #4a7dff;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message-time {
+    font-size: 10px;
+    margin: 0;
+    opacity: 0.7;
+}
+
+.message.incoming .message-time {
+    text-align: left;
+}
+
+.message.outgoing .message-time {
+    text-align: right;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Chat Input Area */
+.chat-input-container {
+    padding: 15px;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    background-color: #f0f2f5;
+    padding: 12px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input:focus {
+    background-color: #e9ebee;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    color: #4a7dff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.send-button:hover {
+    transform: scale(1.1);
+}
+
+.send-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #4a7dff;
+}
+
+/* For mobile responsive design */
+@media (max-width: 480px) {
+    .chat-modal {
+        width: 90%;
+        right: 5%;
+        bottom: 80px;
+    }
+
+    .chat-icon {
+        bottom: 20px;
+        right: 20px;
+    }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Langchain Chatbot</title>
+    </head>
+    <body>
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="brand">
+                <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MDAgNTAwIiBmaWxsPSIjMDA3NWZmIj48cGF0aCBkPSJNMjUwIDQ2QzEzNi45NiA0NiA0NiAxMzYuOTYgNDYgMjUwczg5Ljk2IDIwNCAyMDMgMjA0IDIwNS04OS45OSAyMDUtMjA0QzQ1NCAxMzYuOTYgMzYzLjA0IDQ2IDI1MCA0NnptLTU4Ljg0IDE2MS42OGMxMC42Mi0zMi4yMiA0MS4xNy00OS41MSA3My4zOC0zOC44OCAzMi4yMiAxMC42MiA0OS41MSA0MS4xNyAzOC44OCA3My4zOC00LjE4IDEyLjY2LTMuMjMgMjUuNjUgMi42NiAzNy4xMiA1Ljg5IDExLjQ3IDE2LjA0IDIwLjA5IDI4LjcgMjQuMjcgMzIuMjIgMTAuNjIgNDkuNTEgNDEuMTcgMzguODggNzMuMzgtMTAuNjIgMzIuMjItNDEuMTcgNDkuNTEtNzMuMzggMzguODgtMTIuNjYtNC4xOC0yNS42NS0zLjIzLTM3LjEyIDIuNjYtMTEuNDcgNS44OS0yMC4wOSAxNi4wNC0yNC4yNyAyOC43LTEwLjYyIDMyLjIyLTQxLjE3IDQ5LjUxLTczLjM4IDM4Ljg4LTMyLjIyLTEwLjYyLTQ5LjUxLTQxLjE3LTM4Ljg4LTczLjM4IDQuMTgtMTIuNjYgMy4yMy0yNS42NS0yLjY2LTM3LjEyLTUuODktMTEuNDctMTYuMDQtMjAuMDktMjguNy0yNC4yNy0zMi4yMi0xMC42Mi00OS41MS00MS4xNy0zOC44OC03My4zOCAxMC42Mi0zMi4yMiA0MS4xNy00OS41MSA3My4zOC0zOC44OCAxMi42NiA0LjE4IDI1LjY1IDMuMjMgMzcuMTItMi42NiAxMS40Ny01Ljg5IDIwLjA5LTE2LjA0IDI0LjI3LTI4Ljd6Ii8+PC9zdmc+"
+                    alt="LangChain Logo" />
+                <span class="brand-text">LangChain Chat</span>
+            </div>
+        </header>
+
+        <!-- Markdown Content -->
+        <div class="markdown-content">
+            <div class="markdown-rendered" id="markdown-output"></div>
+        </div>
+
+        <!-- Chat Icon Button -->
+        <div class="chat-icon" id="openChat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M12 2C6.486 2 2 6.486 2 12c0 1.787.476 3.473 1.306 4.932L2 22l5.068-1.306A9.958 9.958 0 0012 22c5.514 0 10-4.486 10-10S17.514 2 12 2zm0 18c-1.465 0-2.882-.33-4.184-.953l-2.299.597.597-2.299A7.953 7.953 0 015 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" />
+                <path d="M8 13h8v2H8z" />
+                <path d="M8 9h8v2H8z" />
+            </svg>
+        </div>
+
+        <!-- Chat Modal -->
+        <div class="chat-modal" id="chatModal">
+            <div class="chat-header">
+                <h3>Chat</h3>
+                <button class="close-btn" id="closeChat">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            <div class="chat-input-container">
+                <input
+                    type="text"
+                    class="chat-input"
+                    id="chatInput"
+                    placeholder="Type a message..." />
+                <button class="send-button" id="sendMessage">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M21.426 11.095l-17-8A1 1 0 003.03 4.242l1.212 4.849L12 12l-7.758 2.909-1.212 4.849a.998.998 0 001.396 1.147l17-8a1 1 0 000-1.81z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>
